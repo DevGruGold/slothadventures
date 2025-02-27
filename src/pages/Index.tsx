@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import SlothChatbot from '@/components/SlothChatbot';
 import TourCard from '@/components/TourCard';
 import Footer from '@/components/Footer';
+import RainforestSounds from '@/components/RainforestSounds';
 
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -137,6 +138,9 @@ const Index = () => {
       {/* Chatbot */}
       <SlothChatbot />
       
+      {/* Rainforest Sounds */}
+      <RainforestSounds />
+      
       {/* Header */}
       <Header />
       
@@ -180,15 +184,25 @@ const Index = () => {
               Book Now
             </a>
           </div>
+          
+          {/* Tour operator information */}
+          <div className="mt-8 bg-white/20 backdrop-blur-sm rounded-xl p-4 inline-block animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            <p className="text-white text-sm font-medium">
+              All tours operated by <span className="font-bold">Arenal Jungle Tours</span> via <span className="font-bold">Top Tours Costa Rica</span>
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Tours Section */}
       <section id="tours" className="py-16 bg-jungle-50/50">
         <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-jungle-900 text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-jungle-900 text-center mb-4">
             Our Exclusive Tours
           </h2>
+          <p className="text-center text-jungle-700 max-w-2xl mx-auto mb-12">
+            All tours are operated by Arenal Jungle Tours and can be booked through Top Tours Costa Rica
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {tours.map((tour, index) => (
               <TourCard 
@@ -280,8 +294,11 @@ const Index = () => {
           <h2 className="text-3xl md:text-4xl font-display font-bold text-sloth-900 mb-8">
             Book Your Adventure Today!
           </h2>
-          <p className="text-xl text-sloth-800 max-w-2xl mx-auto mb-8">
-            Ready to experience the wonders of Sloth Park? Book your tour now with Top Tours Costa Rica and create unforgettable memories.
+          <p className="text-xl text-sloth-800 max-w-2xl mx-auto mb-4">
+            Ready to experience the wonders of Sloth Park? Book your tour now and create unforgettable memories.
+          </p>
+          <p className="text-lg text-sloth-700 max-w-2xl mx-auto mb-8">
+            <strong>Arenal Jungle Tours</strong> - operated exclusively through <strong>Top Tours Costa Rica</strong>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 

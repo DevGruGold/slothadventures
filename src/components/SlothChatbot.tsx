@@ -19,6 +19,7 @@ const SlothChatbot = () => {
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const chatRef = useRef<HTMLDivElement>(null);
   
   // Auto-scroll to bottom of messages
   useEffect(() => {
@@ -43,6 +44,20 @@ const SlothChatbot = () => {
     
     return () => clearTimeout(timer);
   }, []);
+
+  // Close chatbot when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (isOpen && chatRef.current && !chatRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -148,10 +163,22 @@ const SlothChatbot = () => {
       {/* Chat window */}
       {isOpen && (
         <div 
+          ref={chatRef}
           className={`fixed bottom-20 right-4 z-40 w-80 sm:w-96 bg-white rounded-xl shadow-xl border border-gray-200 transition-all duration-300 ease-in-out animate-slide-in ${
             isExpanded ? 'h-[80vh]' : 'h-[450px]'
           }`}
         >
+          {/* Close button (larger, more obvious) */}
+          <button 
+            onClick={() => setIsOpen(false)}
+            className="absolute -top-3 -right-3 bg-jungle-500 hover:bg-jungle-600 text-white p-2 rounded-full shadow-md transition-colors z-50"
+            aria-label="Close chat"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          
           {/* Chat header */}
           <div className="flex items-center justify-between p-4 border-b border-gray-100">
             <div className="flex items-center gap-3">

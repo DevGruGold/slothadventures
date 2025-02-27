@@ -26,46 +26,55 @@ const Header = () => {
           : 'bg-transparent py-5'
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <a 
-          href="/" 
-          className="flex items-center gap-2 transition-transform duration-300 hover:scale-105"
-        >
-          <img 
-            src="/lovable-uploads/a0569f15-d474-4939-a628-bf1204c56fb9.png"
-            alt="Arenal Jungle Tours Logo" 
-            className="h-12 md:h-16 w-auto object-contain" 
-          />
-        </a>
-        
-        <nav className={`hidden md:flex items-center gap-6 text-sm font-medium transition-colors duration-300 ${
-          scrolled ? 'text-jungle-800' : 'text-white drop-shadow-md'
-        }`}>
-          <a href="#tours" className="hover:text-sloth-400 transition-colors duration-200">Tours</a>
-          <a href="#sloths" className="hover:text-sloth-400 transition-colors duration-200">About Sloths</a>
-          <a href="#faq" className="hover:text-sloth-400 transition-colors duration-200">FAQ</a>
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex items-center justify-between">
           <a 
-            href="#booking" 
-            className={`px-5 py-2 rounded-full transition-all duration-300 ${
-              scrolled 
-                ? 'bg-jungle-500 text-white hover:bg-jungle-600' 
-                : 'bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30'
+            href="/" 
+            className="flex items-center gap-2 transition-transform duration-300 hover:scale-105"
+          >
+            <img 
+              src="/lovable-uploads/a0569f15-d474-4939-a628-bf1204c56fb9.png"
+              alt="Arenal Jungle Tours Logo" 
+              className="h-12 md:h-16 w-auto object-contain" 
+            />
+          </a>
+          
+          <nav className={`hidden md:flex items-center gap-6 text-sm font-medium transition-colors duration-300 ${
+            scrolled ? 'text-jungle-800' : 'text-white drop-shadow-md'
+          }`}>
+            <a href="#tours" className="hover:text-sloth-400 transition-colors duration-200">Tours</a>
+            <a href="#sloths" className="hover:text-sloth-400 transition-colors duration-200">About Sloths</a>
+            <a href="#faq" className="hover:text-sloth-400 transition-colors duration-200">FAQ</a>
+            <a 
+              href="#booking" 
+              className={`px-5 py-2 rounded-full transition-all duration-300 ${
+                scrolled 
+                  ? 'bg-jungle-500 text-white hover:bg-jungle-600' 
+                  : 'bg-white/20 backdrop-blur-sm border border-white/30 hover:bg-white/30'
+              }`}
+            >
+              Book Now
+            </a>
+          </nav>
+          
+          {/* Operator attribution - visible when scrolled */}
+          {scrolled && (
+            <div className="hidden md:block text-xs text-jungle-700 absolute left-1/2 transform -translate-x-1/2 bottom-1">
+              Tours by Arenal Jungle Tours via Top Tours Costa Rica
+            </div>
+          )}
+          
+          <button 
+            aria-label="Menu" 
+            className={`md:hidden flex flex-col gap-1.5 p-2 rounded-md ${
+              scrolled ? 'text-jungle-800' : 'text-white'
             }`}
           >
-            Book Now
-          </a>
-        </nav>
-        
-        <button 
-          aria-label="Menu" 
-          className={`md:hidden flex flex-col gap-1.5 p-2 rounded-md ${
-            scrolled ? 'text-jungle-800' : 'text-white'
-          }`}
-        >
-          <span className="w-6 h-0.5 bg-current rounded-full transition-all"></span>
-          <span className="w-6 h-0.5 bg-current rounded-full transition-all"></span>
-          <span className="w-6 h-0.5 bg-current rounded-full transition-all"></span>
-        </button>
+            <span className="w-6 h-0.5 bg-current rounded-full transition-all"></span>
+            <span className="w-6 h-0.5 bg-current rounded-full transition-all"></span>
+            <span className="w-6 h-0.5 bg-current rounded-full transition-all"></span>
+          </button>
+        </div>
       </div>
     </header>
   );
