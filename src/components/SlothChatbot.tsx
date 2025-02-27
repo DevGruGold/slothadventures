@@ -13,7 +13,7 @@ const SlothChatbot = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
     { 
       role: 'assistant', 
-      content: 'Hello there! I'm Sammy the Sloth, your guide to Sloth Park. How can I help you today?' 
+      content: "Hello there! I'm Sammy the Sloth, your guide to Sloth Park. How can I help you today?" 
     }
   ]);
   const [input, setInput] = useState('');
@@ -30,7 +30,7 @@ const SlothChatbot = () => {
     if (isOpen && messages.length === 0) {
       setMessages([{ 
         role: 'assistant', 
-        content: 'Hello there! I'm Sammy the Sloth, your guide to Sloth Park. How can I help you today?' 
+        content: "Hello there! I'm Sammy the Sloth, your guide to Sloth Park. How can I help you today?" 
       }]);
     }
   }, [isOpen, messages.length]);
