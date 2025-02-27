@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import SlothChatbot from '@/components/SlothChatbot';
@@ -184,7 +185,16 @@ const Index = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {tours.map((tour, index) => (
-              <TourCard key={index} tour={tour} />
+              <TourCard 
+                key={index} 
+                title={tour.title}
+                description={tour.description}
+                image={tour.image}
+                price={tour.price}
+                duration={tour.duration}
+                highlights={tour.highlights}
+                times={tour.times}
+              />
             ))}
           </div>
         </div>
