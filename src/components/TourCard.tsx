@@ -23,6 +23,11 @@ const TourCard = ({
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
 
+  const handleBookNow = () => {
+    // Open WhatsApp with the provided number
+    window.open('https://wa.me/50661500559', '_blank');
+  };
+
   return (
     <div 
       className="group relative overflow-hidden rounded-xl shadow-md transition-all duration-500 ease-in-out h-full flex flex-col bg-white"
@@ -86,7 +91,10 @@ const TourCard = ({
       
       {/* Book button */}
       <div className="p-5 pt-0 mt-auto">
-        <button className="w-full py-3 bg-jungle-500 hover:bg-jungle-600 text-white rounded-lg transition-colors shadow-sm font-medium">
+        <button 
+          onClick={handleBookNow}
+          className="w-full py-3 bg-jungle-500 hover:bg-jungle-600 text-white rounded-lg transition-colors shadow-sm font-medium"
+        >
           Book This Tour
         </button>
       </div>

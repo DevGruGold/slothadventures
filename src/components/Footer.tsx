@@ -11,6 +11,7 @@ const Footer = () => {
       setIsSubmitted(true);
       setEmail('');
       // In a real app, we would send this to a backend
+      // Here we'll simulate sending it to Top Tours Costa Rica
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
@@ -33,6 +34,9 @@ const Footer = () => {
             </div>
             <p className="text-jungle-100 text-sm">
               Experience the magic of sloths in their natural habitat along with thrilling adventure tours in the heart of the rainforest.
+            </p>
+            <p className="text-jungle-100 text-sm">
+              Tours provided by <strong>Top Tours Costa Rica</strong>
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-jungle-100 hover:text-white transition-colors">
@@ -80,13 +84,13 @@ const Footer = () => {
                 <svg className="h-5 w-5 text-jungle-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <span>+506 2479 1234</span>
+                <a href="tel:+50661500559" className="hover:text-white transition-colors">+506 6150 0559</a>
               </li>
               <li className="flex items-center gap-3">
                 <svg className="h-5 w-5 text-jungle-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span>info@slothpark.com</span>
+                <a href="mailto:toptourscostarica@gmail.com" className="hover:text-white transition-colors">toptourscostarica@gmail.com</a>
               </li>
               <li className="flex items-center gap-3">
                 <svg className="h-5 w-5 text-jungle-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -130,7 +134,7 @@ const Footer = () => {
         </div>
         
         <div className="mt-12 pt-8 border-t border-jungle-800 text-center text-jungle-400 text-sm">
-          <p>© {new Date().getFullYear()} Sloth Park. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Sloth Park. All rights reserved. Tours provided by Top Tours Costa Rica.</p>
         </div>
       </div>
     </footer>

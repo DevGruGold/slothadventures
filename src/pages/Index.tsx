@@ -16,6 +16,12 @@ const Index = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  // Handler for book now button
+  const handleBookNow = () => {
+    // Open WhatsApp with the provided number
+    window.open('https://wa.me/50661500559', '_blank');
+  };
+
   const tours = [
     {
       title: "Sloth Tour",
@@ -261,7 +267,7 @@ const Index = () => {
                 How can I book a tour?
               </h3>
               <p className="text-lg text-jungle-700">
-                You can book a tour online through our website or by visiting our booking office at the park entrance.
+                You can book a tour by contacting Top Tours Costa Rica via WhatsApp at +506 6150 0559 or by email at toptourscostarica@gmail.com.
               </p>
             </div>
           </div>
@@ -275,14 +281,25 @@ const Index = () => {
             Book Your Adventure Today!
           </h2>
           <p className="text-xl text-sloth-800 max-w-2xl mx-auto mb-8">
-            Ready to experience the wonders of Sloth Park? Book your tour now and create unforgettable memories.
+            Ready to experience the wonders of Sloth Park? Book your tour now with Top Tours Costa Rica and create unforgettable memories.
           </p>
-          <a 
-            href="#" 
-            className="px-8 py-4 bg-sloth-500 hover:bg-sloth-600 text-white rounded-full transition-all shadow-lg hover:shadow-xl font-medium text-lg"
-          >
-            Book Now
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button 
+              onClick={handleBookNow}
+              className="px-8 py-4 bg-sloth-500 hover:bg-sloth-600 text-white rounded-full transition-all shadow-lg hover:shadow-xl font-medium text-lg"
+            >
+              Contact via WhatsApp
+            </button>
+            <a 
+              href="mailto:toptourscostarica@gmail.com" 
+              className="px-8 py-4 bg-jungle-500 hover:bg-jungle-600 text-white rounded-full transition-all shadow-lg hover:shadow-xl font-medium text-lg"
+            >
+              Email Us
+            </a>
+          </div>
+          <p className="mt-6 text-sloth-700">
+            Provided by Top Tours Costa Rica
+          </p>
         </div>
       </section>
 
