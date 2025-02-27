@@ -32,15 +32,10 @@ const Header = () => {
           className="flex items-center gap-2 transition-transform duration-300 hover:scale-105"
         >
           <img 
-            src="/lovable-uploads/f2e64251-23a1-44f9-bbcb-0fddd4845863.png" 
-            alt="Sloth Park Logo" 
+            src="/lovable-uploads/a0569f15-d474-4939-a628-bf1204c56fb9.png"
+            alt="Arenal Jungle Tours Logo" 
             className="h-12 md:h-16 w-auto object-contain" 
           />
-          <span className={`text-xl md:text-2xl font-display font-medium transition-colors duration-300 ${
-            scrolled ? 'text-jungle-800' : 'text-white drop-shadow-md'
-          }`}>
-            Sloth Park
-          </span>
         </a>
         
         <nav className={`hidden md:flex items-center gap-6 text-sm font-medium transition-colors duration-300 ${
