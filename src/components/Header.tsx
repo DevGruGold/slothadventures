@@ -57,12 +57,10 @@ const Header = () => {
             </a>
           </nav>
           
-          {/* Operator attribution - visible when scrolled */}
-          {scrolled && (
-            <div className="hidden md:block text-xs text-jungle-700 absolute left-1/2 transform -translate-x-1/2 bottom-1">
-              Tours by Arenal Jungle Tours via Top Tours Costa Rica
-            </div>
-          )}
+          {/* Operator attribution - always visible */}
+          <div className={`hidden md:block text-xs ${scrolled ? 'text-jungle-700' : 'text-white/80'} absolute left-1/2 transform -translate-x-1/2 bottom-1`}>
+            Tours operated by Arenal Jungle Tours via Top Tours Costa Rica
+          </div>
           
           <button 
             aria-label="Menu" 

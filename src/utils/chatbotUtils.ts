@@ -1,4 +1,3 @@
-
 interface ChatMessage {
   role: 'user' | 'assistant';
   content: string;
@@ -79,6 +78,19 @@ const tourInfo = {
       "Tours leave at 8:30am and 1:30pm",
       "Guided experience",
       "Bird and wildlife spotting opportunities"
+    ]
+  },
+  rioHabanaNightWalk: {
+    name: "Rio Habana Night Walk",
+    description: "Experience the magic of the rainforest after dark and discover nocturnal wildlife.",
+    details: [
+      "Guided night walk",
+      "Observe frogs, insects and other nocturnal animals",
+      "Special night vision equipment provided",
+      "Small groups for personalized experience",
+      "Daily at 6:00 PM and 8:00 PM",
+      "Price: $45 per person",
+      "Duration: 2 hours"
     ]
   }
 };
@@ -176,14 +188,19 @@ export const generateSlothResponse = (userMessage: string, setIsTyping: (typing:
   else if (message.includes('time') && message.includes('hanging bridge')) {
     response = "The Hanging Bridges tours leave at 8:30am and 1:30pm.";
   }
+  else if (message.includes('night') || message.includes('rio habana')) {
+    response = "Our Rio Habana Night Walk is a magical 2-hour experience to see nocturnal wildlife in the rainforest. Tours depart daily at 6:00 PM and 8:00 PM. The cost is $45 per person and includes special night vision equipment.";
+  }
   // Price inquiries
   else if (message.includes('price') || message.includes('cost') || message.includes('how much')) {
     if (message.includes('sloth')) {
       response = "The Sloth Tour costs $60 per person, and children are free!";
     } else if (message.includes('chocolate') || message.includes('coffee')) {
       response = "Adding the Chocolate, Coffee, and Sugarcane tour to your Sloth Tour costs an additional $35 per person.";
+    } else if (message.includes('night') || message.includes('rio habana')) {
+      response = "The Rio Habana Night Walk costs $45 per person and runs daily at 6:00 PM and 8:00 PM.";
     } else if (message.includes('all') || message.includes('everything')) {
-      response = "Our tour prices vary: Sloth Tour is $60 per person (children free), adding Chocolate & Coffee Tour is $35 more. We have various combo packages as well - would you like specific pricing for any particular tour?";
+      response = "Our tour prices vary: Sloth Tour is $60 per person (children free), adding Chocolate & Coffee Tour is $35 more, Rio Habana Night Walk is $45 per person. We have various combo packages as well - would you like specific pricing for any particular tour?";
     } else {
       response = "We have various tour options at different price points. The Sloth Tour is $60 per person with children free. Would you like pricing for a specific tour?";
     }
@@ -194,7 +211,7 @@ export const generateSlothResponse = (userMessage: string, setIsTyping: (typing:
   }
   // General tour questions
   else if (message.includes('tour') || message.includes('package') || message.includes('experience')) {
-    response = "We offer a variety of tours including our popular Sloth Tour, Chocolate & Coffee Tour, Adventure Combo, Volcano & Hanging Bridges Combo, Rio Celeste Tour, Zipline Adventure, and Hanging Bridges Tour. Which one would you like to know more about?";
+    response = "We offer a variety of tours including our popular Sloth Tour, Chocolate & Coffee Tour, Adventure Combo, Volcano & Hanging Bridges Combo, Rio Celeste Tour, Zipline Adventure, Hanging Bridges Tour, and our exciting Rio Habana Night Walk. Which one would you like to know more about?";
   }
   // Questions about facilities and amenities
   else if (message.includes('food') || message.includes('eat') || message.includes('restaurant') || message.includes('lunch')) {

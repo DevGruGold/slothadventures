@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 
 interface TourCardProps {
@@ -27,6 +26,9 @@ const TourCard = ({
     // Open WhatsApp with the provided number
     window.open('https://wa.me/50661500559', '_blank');
   };
+  
+  // Determine if this is the sloth tour to keep the same image
+  const isSlothTour = title.toLowerCase().includes('sloth');
 
   return (
     <div 
@@ -86,6 +88,11 @@ const TourCard = ({
               </li>
             ))}
           </ul>
+        </div>
+        
+        {/* Tour operator attribution */}
+        <div className="mt-4 text-xs text-jungle-600">
+          <p className="italic">Operated by Arenal Jungle Tours via Top Tours Costa Rica</p>
         </div>
       </div>
       

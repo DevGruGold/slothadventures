@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import SlothChatbot from '@/components/SlothChatbot';
@@ -27,7 +26,7 @@ const Index = () => {
     {
       title: "Sloth Tour",
       description: "Get up close with both two and three-fingered sloths in their natural habitat with our expert guides.",
-      image: "/lovable-uploads/87ef11a1-fc98-403f-95ad-9fcada873789.png",
+      image: "/lovable-uploads/87ef11a1-fc98-403f-95ad-9fcada873789.png", // Keep original sloth photo
       price: "$60 per person",
       duration: "90 minutes",
       highlights: [
@@ -42,7 +41,7 @@ const Index = () => {
     {
       title: "Chocolate, Coffee, and Sugarcane Tour",
       description: "Indulge in a sensory experience as you explore the rich flavors of Costa Rica's finest exports.",
-      image: "/lovable-uploads/87ef11a1-fc98-403f-95ad-9fcada873789.png",
+      image: "/lovable-uploads/9f6a0983-c517-4da7-856a-3270cf110640.png", // Coffee beans image
       price: "$35 per person",
       duration: "90 minutes",
       highlights: [
@@ -55,7 +54,7 @@ const Index = () => {
     {
       title: "Adventure Combo",
       description: "Experience the thrill of ATV riding, white water rafting, and a waterfall hike with hot springs and a volcanic mud bath.",
-      image: "/lovable-uploads/87ef11a1-fc98-403f-95ad-9fcada873789.png",
+      image: "/lovable-uploads/b6db074f-567f-42b0-b2d8-dcfa8d7547f7.png", // Waterfall image
       price: "Varies",
       duration: "Full day",
       highlights: [
@@ -69,7 +68,7 @@ const Index = () => {
     {
       title: "Morning Volcano Hike with Mistico Hanging Bridges",
       description: "Hike a volcano in the morning and explore the rainforest canopy on the Mistico Hanging Bridges.",
-      image: "/lovable-uploads/87ef11a1-fc98-403f-95ad-9fcada873789.png",
+      image: "/lovable-uploads/0415fed3-f136-4a5a-810b-00216b4c5d26.png", // Hanging bridge image
       price: "Varies",
       duration: "Full day",
       highlights: [
@@ -83,7 +82,7 @@ const Index = () => {
     {
       title: "Afternoon Volcano Hike with Mistico Hanging Bridges",
       description: "Hike a volcano in the afternoon and explore the rainforest canopy on the Mistico Hanging Bridges.",
-      image: "/lovable-uploads/87ef11a1-fc98-403f-95ad-9fcada873789.png",
+      image: "/lovable-uploads/0415fed3-f136-4a5a-810b-00216b4c5d26.png", // Hanging bridge image
       price: "Varies",
       duration: "Full day",
       highlights: [
@@ -97,7 +96,7 @@ const Index = () => {
     {
       title: "Rio Celeste Tour and Hike",
       description: "Discover the stunning turquoise waters of Rio Celeste and hike to its beautiful waterfall.",
-      image: "/lovable-uploads/87ef11a1-fc98-403f-95ad-9fcada873789.png",
+      image: "/lovable-uploads/b6db074f-567f-42b0-b2d8-dcfa8d7547f7.png", // Waterfall image
       price: "Varies",
       duration: "Full day",
       highlights: [
@@ -110,7 +109,7 @@ const Index = () => {
     {
       title: "Zipline Adventure",
       description: "Soar through the rainforest canopy on an exhilarating zipline adventure.",
-      image: "/lovable-uploads/87ef11a1-fc98-403f-95ad-9fcada873789.png",
+      image: "/lovable-uploads/5ee1f55b-70f3-4635-a28a-403ebaf70a28.png", // Zipline image
       price: "Varies",
       duration: "Flexible",
       highlights: [
@@ -122,7 +121,7 @@ const Index = () => {
     {
       title: "Hanging Bridges Tour",
       description: "Explore the rainforest canopy on a network of hanging bridges with breathtaking views.",
-      image: "/lovable-uploads/87ef11a1-fc98-403f-95ad-9fcada873789.png",
+      image: "/lovable-uploads/0415fed3-f136-4a5a-810b-00216b4c5d26.png", // Hanging bridge image
       price: "Varies",
       duration: "Half day",
       highlights: [
@@ -130,6 +129,20 @@ const Index = () => {
         "Rainforest views"
       ],
       times: "Leaves at 8:30 AM and 1:30 PM"
+    },
+    {
+      title: "Rio Habana Night Walk",
+      description: "Experience the magic of the rainforest after dark and discover nocturnal wildlife in their natural habitat.",
+      image: "/lovable-uploads/6eb75cec-ba71-4e1d-8183-64d7a3471f04.png", // Tree frog image
+      price: "$45 per person",
+      duration: "2 hours",
+      highlights: [
+        "Guided night walk",
+        "Observe frogs, insects and other nocturnal animals",
+        "Special night vision equipment provided",
+        "Small groups for personalized experience"
+      ],
+      times: "Daily at 6:00 PM and 8:00 PM"
     },
   ];
 
@@ -146,6 +159,7 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* ... keep existing code (hero section) */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black/40 z-10"></div>
           <img 
