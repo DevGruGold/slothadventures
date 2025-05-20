@@ -11,9 +11,9 @@ const RainforestSounds = () => {
   const { toast } = useToast();
   
   useEffect(() => {
-    // Create audio element with 1.fm rainforest stream
+    // Create audio element with 1.fm Brazilian Birds stream
     const audio = new Audio();
-    audio.src = 'https://strm112.1.fm/natureworld_mobile_mp3';
+    audio.src = 'https://strm112.1.fm/brazilianbirds_mobile_mp3';
     audio.crossOrigin = 'anonymous'; // Important for CORS
     audio.loop = true;
     audio.volume = volume;
