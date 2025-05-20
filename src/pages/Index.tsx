@@ -132,7 +132,7 @@ const Index = () => {
     },
     {
       title: "Rio Habana Night Walk",
-      description: "Experience the magic of the rainforest after dark and discover nocturnal wildlife in their natural habitat.",
+      description: "Experience the magic of the rainforest after dark and discover nocturnal wildlife in their natural habitat. Provided by Rio Habana Night Walk.",
       image: "/lovable-uploads/6eb75cec-ba71-4e1d-8183-64d7a3471f04.png", // Tree frog image
       price: "$45 per person",
       duration: "2 hours",

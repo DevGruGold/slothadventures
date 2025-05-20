@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 
 interface TourCardProps {
@@ -29,6 +30,7 @@ const TourCard = ({
   
   // Determine if this is the sloth tour to keep the same image
   const isSlothTour = title.toLowerCase().includes('sloth');
+  const isRioHabanaNightWalk = title.toLowerCase().includes('rio habana');
 
   return (
     <div 
@@ -92,7 +94,11 @@ const TourCard = ({
         
         {/* Tour operator attribution */}
         <div className="mt-4 text-xs text-jungle-600">
-          <p className="italic">Operated by Arenal Jungle Tours via Top Tours Costa Rica</p>
+          {isRioHabanaNightWalk ? (
+            <p className="italic">Provided by Rio Habana Night Walk via Top Tours Costa Rica</p>
+          ) : (
+            <p className="italic">Operated by Arenal Jungle Tours via Top Tours Costa Rica</p>
+          )}
         </div>
       </div>
       

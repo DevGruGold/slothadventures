@@ -5,23 +5,40 @@ const RainforestSounds = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.3); // Default volume at 30%
   const [isVisible, setIsVisible] = useState(true);
+  const [audioLoaded, setAudioLoaded] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   
   useEffect(() => {
     // Create audio element
-    const audio = new Audio('/sounds/rainforest-ambience.mp3');
+    const audio = new Audio();
+    audio.src = '/sounds/rainforest-ambience.mp3';
     audio.loop = true;
     audio.volume = volume;
+    audio.preload = 'auto';
+    
+    // Add event listener to check when audio is loaded
+    audio.addEventListener('canplaythrough', () => {
+      setAudioLoaded(true);
+      console.log('Audio file loaded successfully');
+    });
+    
+    audio.addEventListener('error', (e) => {
+      console.error('Error loading audio file:', e);
+      setAudioLoaded(false);
+    });
+    
     audioRef.current = audio;
 
     // Start playing with a delay to ensure better user experience
     const timer = setTimeout(() => {
-      audio.play().catch(error => {
-        // Browser might block autoplay, handle error silently
-        console.log('Autoplay prevented due to browser policy:', error);
-        setIsPlaying(false);
-      });
-      setIsPlaying(true);
+      if (audioLoaded) {
+        audio.play().catch(error => {
+          // Browser might block autoplay, handle error silently
+          console.log('Autoplay prevented due to browser policy:', error);
+          setIsPlaying(false);
+        });
+        setIsPlaying(true);
+      }
     }, 1500);
     
     return () => {
@@ -30,7 +47,7 @@ const RainforestSounds = () => {
       audio.src = '';
       audioRef.current = null;
     };
-  }, []);
+  }, [audioLoaded]);
   
   useEffect(() => {
     if (audioRef.current) {
