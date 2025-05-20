@@ -1,5 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
+import { useToast } from '@/components/ui/use-toast';
 
 const RainforestSounds = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -7,11 +8,13 @@ const RainforestSounds = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [audioLoaded, setAudioLoaded] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const { toast } = useToast();
   
   useEffect(() => {
-    // Create audio element
+    // Create audio element with 1.fm rainforest stream
     const audio = new Audio();
-    audio.src = '/sounds/rainforest-ambience.mp3';
+    audio.src = 'https://strm112.1.fm/natureworld_mobile_mp3';
+    audio.crossOrigin = 'anonymous'; // Important for CORS
     audio.loop = true;
     audio.volume = volume;
     audio.preload = 'auto';
@@ -19,12 +22,17 @@ const RainforestSounds = () => {
     // Add event listener to check when audio is loaded
     audio.addEventListener('canplaythrough', () => {
       setAudioLoaded(true);
-      console.log('Audio file loaded successfully');
+      console.log('Audio stream loaded successfully');
     });
     
     audio.addEventListener('error', (e) => {
-      console.error('Error loading audio file:', e);
+      console.error('Error loading audio stream:', e);
       setAudioLoaded(false);
+      toast({
+        title: "Audio Error",
+        description: "Could not load the rainforest sounds. Please try again later.",
+        variant: "destructive"
+      });
     });
     
     audioRef.current = audio;
@@ -36,6 +44,11 @@ const RainforestSounds = () => {
           // Browser might block autoplay, handle error silently
           console.log('Autoplay prevented due to browser policy:', error);
           setIsPlaying(false);
+          toast({
+            title: "Audio Blocked",
+            description: "Please click play to hear rainforest sounds",
+            duration: 5000,
+          });
         });
         setIsPlaying(true);
       }
@@ -47,7 +60,7 @@ const RainforestSounds = () => {
       audio.src = '';
       audioRef.current = null;
     };
-  }, [audioLoaded]);
+  }, [audioLoaded, toast]);
   
   useEffect(() => {
     if (audioRef.current) {
