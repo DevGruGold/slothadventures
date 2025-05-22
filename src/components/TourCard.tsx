@@ -1,5 +1,15 @@
 
 import { useState } from 'react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import { Form, FormField, FormItem, FormLabel, FormControl } from "@/components/ui/form";
+import { Calendar } from "@/components/ui/calendar";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { CalendarIcon, Users } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { format } from "date-fns";
+import { useForm } from "react-hook-form";
 
 interface TourCardProps {
   title: string;
@@ -22,10 +32,35 @@ const TourCard = ({
 }: TourCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const [bookingDialogOpen, setBookingDialogOpen] = useState(false);
+  
+  // Define form for booking
+  const form = useForm({
+    defaultValues: {
+      date: undefined as Date | undefined,
+      guests: 1
+    }
+  });
 
   const handleBookNow = () => {
-    // Open WhatsApp with the provided number
-    window.open('https://wa.me/50661500559', '_blank');
+    setBookingDialogOpen(true);
+  };
+  
+  const submitBooking = (values: { date: Date | undefined; guests: number }) => {
+    // Format the date 
+    const formattedDate = values.date ? format(values.date, 'MMMM d, yyyy') : 'flexible';
+    
+    // Create WhatsApp message
+    const message = `Hello! I would like to book the ${title} tour for ${values.guests} guest${values.guests > 1 ? 's' : ''} on ${formattedDate}. Price: ${price}, Duration: ${duration}. Please confirm availability.`;
+    
+    // Encode message for WhatsApp URL
+    const encodedMessage = encodeURIComponent(message);
+    
+    // Open WhatsApp with the pre-filled message
+    window.open(`https://wa.me/50661500559?text=${encodedMessage}`, '_blank');
+    
+    // Close the dialog
+    setBookingDialogOpen(false);
   };
   
   // Determine if this is the sloth tour to keep the same image
@@ -111,6 +146,96 @@ const TourCard = ({
           Book This Tour
         </button>
       </div>
+
+      {/* Booking Dialog */}
+      <Dialog open={bookingDialogOpen} onOpenChange={setBookingDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Book {title}</DialogTitle>
+          </DialogHeader>
+          
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(submitBooking)} className="space-y-4">
+              {/* Date picker */}
+              <FormField
+                control={form.control}
+                name="date"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col">
+                    <FormLabel>Select Date</FormLabel>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant={"outline"}
+                            className={cn(
+                              "w-full pl-3 text-left font-normal",
+                              !field.value && "text-muted-foreground"
+                            )}
+                          >
+                            {field.value ? (
+                              format(field.value, "PPP")
+                            ) : (
+                              <span>Pick a date</span>
+                            )}
+                            <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-auto p-0" align="start">
+                        <Calendar
+                          mode="single"
+                          selected={field.value}
+                          onSelect={field.onChange}
+                          initialFocus
+                          disabled={(date) => date < new Date()}
+                          className="p-3 pointer-events-auto"
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </FormItem>
+                )}
+              />
+              
+              {/* Number of guests */}
+              <FormField
+                control={form.control}
+                name="guests"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Number of Guests</FormLabel>
+                    <div className="flex items-center">
+                      <Users className="mr-2 h-4 w-4 text-jungle-500" />
+                      <FormControl>
+                        <Input
+                          type="number"
+                          min="1"
+                          max="20"
+                          {...field}
+                          onChange={e => field.onChange(parseInt(e.target.value) || 1)}
+                        />
+                      </FormControl>
+                    </div>
+                  </FormItem>
+                )}
+              />
+              
+              <DialogFooter className="sm:justify-end">
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  onClick={() => setBookingDialogOpen(false)}
+                >
+                  Cancel
+                </Button>
+                <Button type="submit">
+                  Continue to WhatsApp
+                </Button>
+              </DialogFooter>
+            </form>
+          </Form>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
