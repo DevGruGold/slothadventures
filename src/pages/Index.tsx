@@ -168,7 +168,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/40 z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/40 to-black/60 z-10"></div>
           <img 
             src="/lovable-uploads/87ef11a1-fc98-403f-95ad-9fcada873789.png"
             alt="Costa Rica rainforest adventure" 
@@ -177,40 +177,60 @@ const Index = () => {
         </div>
         
         <div className="container relative z-20 px-4 md:px-6 text-center">
-          <img 
-            src="/lovable-uploads/aa570b59-757b-424b-851a-b00b61e8833a.png"
-            alt="Top Tours Costa Rica Logo"
-            className="mx-auto mb-8 w-64 md:w-80 animate-fade-in"
-          />
-          <span className="inline-block text-white/90 bg-jungle-700/50 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium mb-4 animate-fade-in">
-            Your gateway to Costa Rica's natural wonders
-          </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 animate-slide-in">
-            Top Tours Costa Rica
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl mx-auto mb-8 animate-slide-in" style={{ animationDelay: "0.1s" }}>
-            Discover the magical diversity of Costa Rica with our expert-guided adventures
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-in" style={{ animationDelay: "0.2s" }}>
-            <a 
-              href="#tours" 
-              className="px-8 py-4 bg-jungle-500 hover:bg-jungle-600 text-white rounded-full transition-all shadow-lg hover:shadow-xl font-medium text-lg"
-            >
-              Explore Our Tours
-            </a>
-            <a 
-              href="#booking" 
-              className="px-8 py-4 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border border-white/30 rounded-full transition-all shadow-lg hover:shadow-xl font-medium text-lg"
-            >
-              Book Now
-            </a>
-          </div>
-          
-          {/* Tour operator information */}
-          <div className="mt-8 bg-white/20 backdrop-blur-sm rounded-xl p-4 inline-block animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            <p className="text-white text-sm font-medium">
-              Premium tours curated by <span className="font-bold">Top Tours Costa Rica</span>
+          <div className="max-w-4xl mx-auto">
+            <span className="inline-block text-white/90 bg-jungle-700/60 backdrop-blur-md px-6 py-3 rounded-full text-sm font-medium mb-8 animate-fade-in border border-white/20">
+              🌿 Your gateway to Costa Rica's natural wonders
+            </span>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-8 animate-slide-in leading-tight">
+              Top Tours
+              <span className="block text-jungle-300 mt-2">Costa Rica</span>
+            </h1>
+            <p className="text-xl md:text-3xl text-white/95 max-w-3xl mx-auto mb-4 animate-slide-in font-light leading-relaxed" style={{ animationDelay: "0.1s" }}>
+              Discover the magical diversity of Costa Rica
             </p>
+            <p className="text-lg md:text-xl text-white/85 max-w-2xl mx-auto mb-12 animate-slide-in" style={{ animationDelay: "0.15s" }}>
+              Expert-guided adventures through pristine rainforests, wildlife encounters, and unforgettable experiences
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-in" style={{ animationDelay: "0.2s" }}>
+              <a 
+                href="#tours" 
+                className="group px-10 py-5 bg-jungle-500 hover:bg-jungle-600 text-white rounded-full transition-all duration-300 shadow-2xl hover:shadow-3xl font-semibold text-lg hover:scale-105 transform"
+              >
+                <span className="flex items-center gap-3">
+                  Explore Our Tours
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </span>
+              </a>
+              <a 
+                href="#booking" 
+                className="group px-10 py-5 bg-white/15 backdrop-blur-md hover:bg-white/25 text-white border-2 border-white/40 hover:border-white/60 rounded-full transition-all duration-300 shadow-2xl hover:shadow-3xl font-semibold text-lg hover:scale-105 transform"
+              >
+                <span className="flex items-center gap-3">
+                  Book Now
+                  <span className="group-hover:scale-110 transition-transform duration-300">✨</span>
+                </span>
+              </a>
+            </div>
+            
+            {/* Enhanced operator information */}
+            <div className="mt-16 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 inline-block border border-white/20 shadow-xl">
+                <p className="text-white/95 text-lg font-medium mb-2">
+                  Premium tours curated by
+                </p>
+                <p className="text-white font-bold text-xl">
+                  Top Tours Costa Rica
+                </p>
+                <div className="flex items-center justify-center gap-2 mt-3 text-white/80 text-sm">
+                  <span>⭐</span>
+                  <span>Expert Guides</span>
+                  <span>•</span>
+                  <span>🌿 Eco-Friendly</span>
+                  <span>•</span>
+                  <span>🦥 Wildlife Specialists</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
