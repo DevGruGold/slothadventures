@@ -19,6 +19,7 @@ interface TourCardProps {
   duration: string;
   highlights: string[];
   times?: string;
+  operatorLogo?: string;
 }
 
 const TourCard = ({ 
@@ -28,7 +29,8 @@ const TourCard = ({
   price, 
   duration, 
   highlights,
-  times
+  times,
+  operatorLogo
 }: TourCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -63,8 +65,7 @@ const TourCard = ({
     setBookingDialogOpen(false);
   };
   
-  // Determine if this is the sloth tour to keep the same image
-  const isSlothTour = title.toLowerCase().includes('sloth');
+  // Determine if this is the Rio Habana night walk
   const isRioHabanaNightWalk = title.toLowerCase().includes('rio habana');
 
   return (
@@ -128,12 +129,21 @@ const TourCard = ({
         </div>
         
         {/* Tour operator attribution */}
-        <div className="mt-4 text-xs text-jungle-600">
-          {isRioHabanaNightWalk ? (
-            <p className="italic">Provided by Rio Habana Night Walk via Top Tours Costa Rica</p>
-          ) : (
-            <p className="italic">Operated by Arenal Jungle Tours via Top Tours Costa Rica</p>
+        <div className="mt-4 flex items-center gap-2">
+          {operatorLogo && (
+            <img 
+              src={operatorLogo} 
+              alt={isRioHabanaNightWalk ? "Rio Habana Night Walk" : "Arenal Jungle Tours"} 
+              className="h-5 w-auto object-contain"
+            />
           )}
+          <p className="italic text-xs text-jungle-600">
+            {isRioHabanaNightWalk ? (
+              "Provided by Rio Habana Night Walk via Top Tours Costa Rica"
+            ) : (
+              "Operated by Arenal Jungle Tours via Top Tours Costa Rica"
+            )}
+          </p>
         </div>
       </div>
       

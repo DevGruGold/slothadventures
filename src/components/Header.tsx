@@ -33,8 +33,8 @@ const Header = () => {
             className="flex items-center gap-2 transition-transform duration-300 hover:scale-105"
           >
             <img 
-              src="/lovable-uploads/a0569f15-d474-4939-a628-bf1204c56fb9.png"
-              alt="Arenal Jungle Tours Logo" 
+              src="/lovable-uploads/aa570b59-757b-424b-851a-b00b61e8833a.png"
+              alt="Top Tours Costa Rica Logo" 
               className="h-12 md:h-16 w-auto object-contain" 
             />
           </a>
@@ -59,7 +59,7 @@ const Header = () => {
           
           {/* Operator attribution - always visible */}
           <div className={`hidden md:block text-xs ${scrolled ? 'text-jungle-700' : 'text-white/80'} absolute left-1/2 transform -translate-x-1/2 bottom-1`}>
-            Tours operated by Arenal Jungle Tours via Top Tours Costa Rica
+            Top Tours Costa Rica - Your gateway to adventure
           </div>
           
           <button 
