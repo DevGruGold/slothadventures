@@ -166,9 +166,9 @@ const Index = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/40 to-black/60 z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-jungle-900/70 via-jungle-800/60 to-jungle-700/80 z-10"></div>
           <img 
             src="/lovable-uploads/87ef11a1-fc98-403f-95ad-9fcada873789.png"
             alt="Costa Rica rainforest adventure" 
@@ -176,44 +176,51 @@ const Index = () => {
           />
         </div>
         
-        <div className="container relative z-20 px-4 md:px-6 text-center">
-          <div className="max-w-4xl mx-auto">
-            <span className="inline-block text-white/90 bg-jungle-700/60 backdrop-blur-md px-6 py-3 rounded-full text-sm font-medium mb-8 animate-fade-in border border-white/20">
-              🌿 Your gateway to Costa Rica's natural wonders
-            </span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-8 animate-slide-in leading-tight">
-              Top Tours
-              <span className="block text-jungle-300 mt-2">Costa Rica</span>
-            </h1>
-            <p className="text-xl md:text-3xl text-white/95 max-w-3xl mx-auto mb-4 animate-slide-in font-light leading-relaxed" style={{ animationDelay: "0.1s" }}>
-              Discover the magical diversity of Costa Rica
-            </p>
-            <p className="text-lg md:text-xl text-white/85 max-w-2xl mx-auto mb-12 animate-slide-in" style={{ animationDelay: "0.15s" }}>
-              Expert-guided adventures through pristine rainforests, wildlife encounters, and unforgettable experiences
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-in" style={{ animationDelay: "0.2s" }}>
+        <div className="container relative z-20 px-6 md:px-8 text-center max-w-6xl mx-auto">
+          <div className="space-y-8">
+            {/* Main heading */}
+            <div className="space-y-4">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight">
+                Top Tours
+                <span className="block text-jungle-300 mt-2">Costa Rica</span>
+              </h1>
+              <div className="h-1 w-24 bg-jungle-300 mx-auto rounded-full"></div>
+            </div>
+            
+            {/* Subtitle and description */}
+            <div className="space-y-6 max-w-4xl mx-auto">
+              <p className="text-2xl md:text-3xl text-white font-light">
+                Discover the magical diversity of Costa Rica
+              </p>
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+                Expert-guided adventures through pristine rainforests, wildlife encounters, and unforgettable experiences in the heart of Central America's natural paradise
+              </p>
+            </div>
+            
+            {/* Call to action buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
               <a 
                 href="#tours" 
-                className="group px-10 py-5 bg-jungle-500 hover:bg-jungle-600 text-white rounded-full transition-all duration-300 shadow-2xl hover:shadow-3xl font-semibold text-lg hover:scale-105 transform"
+                className="group px-8 py-4 bg-jungle-500 hover:bg-jungle-600 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl font-semibold text-lg hover:scale-105 transform"
               >
-                <span className="flex items-center gap-3">
+                <span className="flex items-center gap-3 justify-center">
                   Explore Our Tours
                   <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
                 </span>
               </a>
-              <a 
-                href="#booking" 
-                className="group px-10 py-5 bg-white/15 backdrop-blur-md hover:bg-white/25 text-white border-2 border-white/40 hover:border-white/60 rounded-full transition-all duration-300 shadow-2xl hover:shadow-3xl font-semibold text-lg hover:scale-105 transform"
+              <button 
+                onClick={handleBookNow}
+                className="group px-8 py-4 bg-white/15 backdrop-blur-md hover:bg-white/25 text-white border-2 border-white/40 hover:border-white/60 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl font-semibold text-lg hover:scale-105 transform"
               >
-                <span className="flex items-center gap-3">
+                <span className="flex items-center gap-3 justify-center">
                   Book Now
                   <span className="group-hover:scale-110 transition-transform duration-300">✨</span>
                 </span>
-              </a>
+              </button>
             </div>
             
-            {/* Enhanced operator information */}
-            <div className="mt-16 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+            {/* Trust indicators */}
+            <div className="pt-12">
               <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 inline-block border border-white/20 shadow-xl">
                 <p className="text-white/95 text-lg font-medium mb-2">
                   Premium tours curated by
@@ -221,13 +228,21 @@ const Index = () => {
                 <p className="text-white font-bold text-xl">
                   Top Tours Costa Rica
                 </p>
-                <div className="flex items-center justify-center gap-2 mt-3 text-white/80 text-sm">
-                  <span>⭐</span>
-                  <span>Expert Guides</span>
+                <div className="flex items-center justify-center gap-4 mt-4 text-white/80 text-sm">
+                  <span className="flex items-center gap-1">
+                    <span>⭐</span>
+                    <span>Expert Guides</span>
+                  </span>
                   <span>•</span>
-                  <span>🌿 Eco-Friendly</span>
+                  <span className="flex items-center gap-1">
+                    <span>🌿</span>
+                    <span>Eco-Friendly</span>
+                  </span>
                   <span>•</span>
-                  <span>🦥 Wildlife Specialists</span>
+                  <span className="flex items-center gap-1">
+                    <span>🦥</span>
+                    <span>Wildlife Specialists</span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -236,14 +251,18 @@ const Index = () => {
       </section>
 
       {/* Tours Section */}
-      <section id="tours" className="py-16 bg-jungle-50/50">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-jungle-900 text-center mb-4">
-            Our Premium Tours
-          </h2>
-          <p className="text-center text-jungle-700 max-w-2xl mx-auto mb-12">
-            Experience the best of Costa Rica with our carefully curated selection of tours
-          </p>
+      <section id="tours" className="py-20 bg-gradient-to-b from-jungle-50 to-white">
+        <div className="container mx-auto px-6 md:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-jungle-900 mb-4">
+              Our Premium Tours
+            </h2>
+            <div className="h-1 w-24 bg-jungle-500 mx-auto rounded-full mb-6"></div>
+            <p className="text-xl text-jungle-700 max-w-3xl mx-auto leading-relaxed">
+              Experience the best of Costa Rica with our carefully curated selection of tours, 
+              designed to showcase the country's incredible biodiversity and natural wonders
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {tours.map((tour, index) => (
               <TourCard 
@@ -263,27 +282,30 @@ const Index = () => {
       </section>
 
       {/* About Sloths Section */}
-      <section id="sloths" className="py-16 bg-sloth-50/50">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-sloth-900 text-center mb-12">
-            Wildlife Spotlight: Sloths
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div>
+      <section id="sloths" className="py-20 bg-sloth-50/50">
+        <div className="container mx-auto px-6 md:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-sloth-900 mb-4">
+              Wildlife Spotlight: Sloths
+            </h2>
+            <div className="h-1 w-24 bg-sloth-500 mx-auto rounded-full"></div>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+            <div className="order-2 lg:order-1">
               <img 
                 src="/lovable-uploads/87ef11a1-fc98-403f-95ad-9fcada873789.png"
                 alt="Two-fingered sloth" 
-                className="sloth-photo" 
+                className="w-full h-96 object-cover rounded-2xl shadow-xl" 
               />
             </div>
-            <div>
-              <p className="text-lg text-sloth-800 mb-6">
+            <div className="order-1 lg:order-2 space-y-6">
+              <p className="text-lg text-sloth-800 leading-relaxed">
                 Sloths are among Costa Rica's most beloved creatures, known for their gentle nature and arboreal lifestyle. They primarily live in the rainforests and are perfectly adapted to life in the trees.
               </p>
-              <p className="text-lg text-sloth-800 mb-6">
+              <p className="text-lg text-sloth-800 leading-relaxed">
                 There are two types of sloths: two-fingered and three-fingered. Both are incredibly adapted to life in the trees, with specialized claws for hanging onto branches.
               </p>
-              <p className="text-lg text-sloth-800">
+              <p className="text-lg text-sloth-800 leading-relaxed">
                 On our sloth tours, you can observe these amazing creatures in their natural habitat and learn about their unique adaptations and conservation status.
               </p>
             </div>
@@ -292,73 +314,87 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-16 bg-jungle-100/50">
-        <div className="container mx-auto px-4 md:px-6">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-jungle-900 text-center mb-12">
-            Frequently Asked Questions
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xl font-semibold text-jungle-800 mb-3">
-                What should I bring on the tours?
-              </h3>
-              <p className="text-lg text-jungle-700 mb-6">
-                We recommend bringing comfortable walking shoes, rain gear, insect repellent, and a camera to capture the amazing sights.
-              </p>
-              <h3 className="text-xl font-semibold text-jungle-800 mb-3">
-                Are the tours suitable for children?
-              </h3>
-              <p className="text-lg text-jungle-700">
-                Yes, our tours are family-friendly! Many of our tours welcome children, and children are free on the Sloth Tour. We ensure a safe and educational experience for all ages.
-              </p>
+      <section id="faq" className="py-20 bg-white">
+        <div className="container mx-auto px-6 md:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-jungle-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+            <div className="h-1 w-24 bg-jungle-500 mx-auto rounded-full"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-xl font-semibold text-jungle-800 mb-3">
+                  What should I bring on the tours?
+                </h3>
+                <p className="text-lg text-jungle-700 leading-relaxed">
+                  We recommend bringing comfortable walking shoes, rain gear, insect repellent, and a camera to capture the amazing sights.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-jungle-800 mb-3">
+                  Are the tours suitable for children?
+                </h3>
+                <p className="text-lg text-jungle-700 leading-relaxed">
+                  Yes, our tours are family-friendly! Many of our tours welcome children, and children are free on the Sloth Tour. We ensure a safe and educational experience for all ages.
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="text-xl font-semibold text-jungle-800 mb-3">
-                What is the best time for wildlife viewing?
-              </h3>
-              <p className="text-lg text-jungle-700 mb-6">
-                Wildlife is active throughout the day, but many animals are easier to spot during the cooler morning hours or during our special night tours.
-              </p>
-              <h3 className="text-xl font-semibold text-jungle-800 mb-3">
-                How can I book a tour?
-              </h3>
-              <p className="text-lg text-jungle-700">
-                You can book a tour by contacting Top Tours Costa Rica via WhatsApp at +506 6150 0559 or by email at toptourscostarica@gmail.com.
-              </p>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-xl font-semibold text-jungle-800 mb-3">
+                  What is the best time for wildlife viewing?
+                </h3>
+                <p className="text-lg text-jungle-700 leading-relaxed">
+                  Wildlife is active throughout the day, but many animals are easier to spot during the cooler morning hours or during our special night tours.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold text-jungle-800 mb-3">
+                  How can I book a tour?
+                </h3>
+                <p className="text-lg text-jungle-700 leading-relaxed">
+                  You can book a tour by contacting Top Tours Costa Rica via WhatsApp at +506 6150 0559 or by email at toptourscostarica@gmail.com.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Booking Section */}
-      <section id="booking" className="py-16 bg-sloth-100/50">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-sloth-900 mb-8">
-            Book Your Costa Rican Adventure Today!
-          </h2>
-          <p className="text-xl text-sloth-800 max-w-2xl mx-auto mb-4">
-            Ready to experience the wonders of Costa Rica? Book your tour now and create unforgettable memories.
-          </p>
-          <p className="text-lg text-sloth-700 max-w-2xl mx-auto mb-8">
-            <strong>Top Tours Costa Rica</strong> - Your trusted partner for authentic Costa Rican adventures
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
-              onClick={handleBookNow}
-              className="px-8 py-4 bg-sloth-500 hover:bg-sloth-600 text-white rounded-full transition-all shadow-lg hover:shadow-xl font-medium text-lg"
-            >
-              Contact via WhatsApp
-            </button>
-            <a 
-              href="mailto:toptourscostarica@gmail.com" 
-              className="px-8 py-4 bg-jungle-500 hover:bg-jungle-600 text-white rounded-full transition-all shadow-lg hover:shadow-xl font-medium text-lg"
-            >
-              Email Us
-            </a>
+      <section id="booking" className="py-20 bg-gradient-to-b from-sloth-100 to-sloth-200">
+        <div className="container mx-auto px-6 md:px-8 text-center">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-sloth-900">
+              Book Your Costa Rican Adventure Today!
+            </h2>
+            <div className="h-1 w-24 bg-sloth-500 mx-auto rounded-full"></div>
+            <p className="text-xl text-sloth-800 leading-relaxed">
+              Ready to experience the wonders of Costa Rica? Book your tour now and create unforgettable memories.
+            </p>
+            <p className="text-lg text-sloth-700">
+              <strong>Top Tours Costa Rica</strong> - Your trusted partner for authentic Costa Rican adventures
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <button 
+                onClick={handleBookNow}
+                className="px-8 py-4 bg-sloth-500 hover:bg-sloth-600 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl font-medium text-lg hover:scale-105 transform"
+              >
+                Contact via WhatsApp
+              </button>
+              <a 
+                href="mailto:toptourscostarica@gmail.com" 
+                className="px-8 py-4 bg-jungle-500 hover:bg-jungle-600 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl font-medium text-lg hover:scale-105 transform"
+              >
+                Email Us
+              </a>
+            </div>
+            <p className="text-sloth-700 text-lg">
+              Top Tours Costa Rica - Experience the Pura Vida
+            </p>
           </div>
-          <p className="mt-6 text-sloth-700">
-            Top Tours Costa Rica - Experience the Pura Vida
-          </p>
         </div>
       </section>
 
