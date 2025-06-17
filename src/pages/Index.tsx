@@ -24,6 +24,11 @@ const Index = () => {
     window.open('https://wa.me/50661500559', '_blank');
   };
 
+  // Handler for TikTok link
+  const handleTikTokClick = () => {
+    window.open('https://www.tiktok.com/@toptourscostarica', '_blank');
+  };
+
   // Smooth scroll to tours section
   const scrollToTours = () => {
     const toursSection = document.getElementById('tours');
@@ -209,6 +214,22 @@ const Index = () => {
               <p className="text-lg sm:text-xl md:text-2xl text-white font-light drop-shadow-md">
                 Discover the magical diversity of Costa Rica
               </p>
+
+              {/* TikTok Social Proof */}
+              <div className="bg-white/10 backdrop-blur-lg rounded-xl p-4 border border-white/20">
+                <div className="flex items-center justify-center gap-3 mb-3">
+                  <span className="text-2xl">📱</span>
+                  <p className="text-white font-medium">See our weekly tour reviews!</p>
+                </div>
+                <button
+                  onClick={handleTikTokClick}
+                  className="group flex items-center justify-center gap-2 w-full px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-lg transition-all duration-300 font-medium text-sm hover:scale-105 transform"
+                >
+                  <span className="text-lg">📱</span>
+                  Follow @toptourscostarica on TikTok
+                  <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                </button>
+              </div>
               
               {/* Quick Stats */}
               <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-6 border border-white/20">
@@ -256,6 +277,33 @@ const Index = () => {
                   />
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TikTok Reviews Section */}
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-pink-50 to-purple-50">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 text-center">
+          <div className="max-w-4xl mx-auto space-y-6">
+            <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900">
+              Weekly Tour Reviews on TikTok
+            </h2>
+            <div className="h-1 w-16 sm:w-24 bg-gradient-to-r from-pink-500 to-purple-600 mx-auto rounded-full"></div>
+            <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
+              Follow our TikTok for authentic weekly reviews of our Costa Rica tours, 
+              behind-the-scenes content, and real guest experiences!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <button
+                onClick={handleTikTokClick}
+                className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl font-semibold text-lg hover:scale-105 transform"
+              >
+                <span className="text-2xl">📱</span>
+                @toptourscostarica
+                <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </button>
+              <p className="text-gray-600">New reviews every week!</p>
             </div>
           </div>
         </div>
@@ -353,6 +401,14 @@ const Index = () => {
                 </h3>
                 <p className="text-base sm:text-lg text-jungle-700 leading-relaxed">
                   Yes, our tours are family-friendly! Many of our tours welcome children, and children are free on the Sloth Tour. We ensure a safe and educational experience for all ages.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-semibold text-jungle-800 mb-3">
+                  Can I see your tour reviews?
+                </h3>
+                <p className="text-base sm:text-lg text-jungle-700 leading-relaxed">
+                  Absolutely! Check out our weekly tour reviews on TikTok @toptourscostarica where we share authentic guest experiences and behind-the-scenes content.
                 </p>
               </div>
             </div>
