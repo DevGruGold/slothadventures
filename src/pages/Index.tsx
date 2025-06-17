@@ -1,8 +1,9 @@
-
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import SlothChatbot from '@/components/SlothChatbot';
 import TourCard from '@/components/TourCard';
+import HeroTourCard from '@/components/HeroTourCard';
+import QuickStats from '@/components/QuickStats';
 import Footer from '@/components/Footer';
 import RainforestSounds from '@/components/RainforestSounds';
 
@@ -21,6 +22,14 @@ const Index = () => {
   const handleBookNow = () => {
     // Open WhatsApp with the provided number
     window.open('https://wa.me/50661500559', '_blank');
+  };
+
+  // Smooth scroll to tours section
+  const scrollToTours = () => {
+    const toursSection = document.getElementById('tours');
+    if (toursSection) {
+      toursSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const tours = [
@@ -60,7 +69,7 @@ const Index = () => {
       title: "Chocolate, Coffee, and Sugarcane Tour",
       description: "Indulge in a sensory experience as you explore the rich flavors of Costa Rica's finest exports.",
       image: "/lovable-uploads/9f6a0983-c517-4da7-856a-3270cf110640.png",
-      price: "$35 per person",
+      price: "$55 per person",
       duration: "90 minutes",
       highlights: [
         "Taste premium chocolate",
@@ -174,8 +183,8 @@ const Index = () => {
       {/* Header */}
       <Header />
       
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Redesigned Hero Section - More Compact */}
+      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/60 z-10"></div>
           <img 
@@ -185,74 +194,67 @@ const Index = () => {
           />
         </div>
         
-        <div className="container relative z-20 px-4 sm:px-6 md:px-8 text-center max-w-6xl mx-auto pt-20">
-          <div className="space-y-6 sm:space-y-8">
-            {/* Main heading */}
-            <div className="space-y-3 sm:space-y-4">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white leading-tight drop-shadow-lg">
-                Top Tours
-                <span className="block text-jungle-300 mt-1 sm:mt-2">Costa Rica</span>
-              </h1>
-              <div className="h-1 w-16 sm:w-24 bg-jungle-300 mx-auto rounded-full"></div>
-            </div>
-            
-            {/* Subtitle and description */}
-            <div className="space-y-4 sm:space-y-6 max-w-4xl mx-auto">
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white font-light drop-shadow-md">
+        <div className="container relative z-20 px-4 sm:px-6 md:px-8 text-center max-w-7xl mx-auto pt-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+            {/* Main Content - Left Side */}
+            <div className="lg:col-span-2 space-y-6">
+              <div className="space-y-3">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white leading-tight drop-shadow-lg">
+                  Top Tours
+                  <span className="block text-jungle-300 mt-1">Costa Rica</span>
+                </h1>
+                <div className="h-1 w-16 sm:w-24 bg-jungle-300 mx-auto lg:mx-0 rounded-full"></div>
+              </div>
+              
+              <p className="text-lg sm:text-xl md:text-2xl text-white font-light drop-shadow-md">
                 Discover the magical diversity of Costa Rica
               </p>
-              <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed drop-shadow-sm px-4">
-                Expert-guided adventures through pristine rainforests, wildlife encounters, and unforgettable experiences in the heart of Central America's natural paradise
-              </p>
+              
+              {/* Quick Stats */}
+              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-6 border border-white/20">
+                <QuickStats />
+              </div>
+              
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                <button 
+                  onClick={scrollToTours}
+                  className="group px-6 py-3 bg-jungle-500 hover:bg-jungle-600 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl font-semibold hover:scale-105 transform"
+                >
+                  <span className="flex items-center gap-2 justify-center">
+                    View All Tours
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                  </span>
+                </button>
+                <button 
+                  onClick={handleBookNow}
+                  className="group px-6 py-3 bg-white/15 backdrop-blur-md hover:bg-white/25 text-white border-2 border-white/40 hover:border-white/60 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl font-semibold hover:scale-105 transform"
+                >
+                  <span className="flex items-center gap-2 justify-center">
+                    Book Now
+                    <span className="group-hover:scale-110 transition-transform duration-300">✨</span>
+                  </span>
+                </button>
+              </div>
             </div>
             
-            {/* Call to action buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-6 sm:pt-8 px-4">
-              <a 
-                href="#tours" 
-                className="group px-6 sm:px-8 py-3 sm:py-4 bg-jungle-500 hover:bg-jungle-600 text-white rounded-full transition-all duration-300 shadow-lg hover:shadow-xl font-semibold text-base sm:text-lg hover:scale-105 transform"
-              >
-                <span className="flex items-center gap-2 sm:gap-3 justify-center">
-                  Explore Top 10 Tours
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </span>
-              </a>
-              <button 
-                onClick={handleBookNow}
-                className="group px-6 sm:px-8 py-3 sm:py-4 bg-white/15 backdrop-blur-md hover:bg-white/25 text-white border-2 border-white/40 hover:border-white/60 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl font-semibold text-base sm:text-lg hover:scale-105 transform"
-              >
-                <span className="flex items-center gap-2 sm:gap-3 justify-center">
-                  Book Now
-                  <span className="group-hover:scale-110 transition-transform duration-300">✨</span>
-                </span>
-              </button>
-            </div>
-            
-            {/* Trust indicators */}
-            <div className="pt-8 sm:pt-12 px-4">
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 sm:p-6 inline-block border border-white/20 shadow-xl max-w-sm sm:max-w-none mx-auto">
-                <p className="text-white/95 text-base sm:text-lg font-medium mb-2">
-                  Premium tours curated by
-                </p>
-                <p className="text-white font-bold text-lg sm:text-xl">
-                  Top Tours Costa Rica
-                </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 mt-4 text-white/80 text-xs sm:text-sm">
-                  <span className="flex items-center gap-1">
-                    <span>⭐</span>
-                    <span>Expert Guides</span>
-                  </span>
-                  <span className="hidden sm:inline">•</span>
-                  <span className="flex items-center gap-1">
-                    <span>🌿</span>
-                    <span>Eco-Friendly</span>
-                  </span>
-                  <span className="hidden sm:inline">•</span>
-                  <span className="flex items-center gap-1">
-                    <span>🦥</span>
-                    <span>Wildlife Specialists</span>
-                  </span>
-                </div>
+            {/* Featured Tours - Right Side */}
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-white mb-4 lg:text-left text-center">
+                🔥 Most Popular Tours
+              </h3>
+              <div className="space-y-4">
+                {tours.slice(0, 3).map((tour, index) => (
+                  <HeroTourCard
+                    key={index}
+                    rank={tour.rank}
+                    title={tour.title}
+                    price={tour.price}
+                    duration={tour.duration}
+                    image={tour.image}
+                    highlights={tour.highlights}
+                  />
+                ))}
               </div>
             </div>
           </div>
