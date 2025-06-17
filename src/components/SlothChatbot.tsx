@@ -127,7 +127,7 @@ const SlothChatbot = () => {
         className={`fixed bottom-4 right-4 z-40 flex items-center justify-center shadow-lg rounded-full transition-all duration-300 ease-in-out ${
           isOpen ? 'w-12 h-12 bg-jungle-500 hover:bg-jungle-600' : 'w-16 h-16 bg-white hover:bg-gray-100'
         }`}
-        aria-label={isOpen ? "Close chat" : "Open chat with Sammy the Sloth"}
+        aria-label={isOpen ? "Close chat" : "Open chat with Top Tours Costa Rica"}
       >
         {isOpen ? (
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -136,9 +136,9 @@ const SlothChatbot = () => {
         ) : (
           <div className="flex flex-col items-center">
             <img 
-              src="/lovable-uploads/0d5c88f1-79c0-4137-a69a-6c03604c189e.png" 
-              alt="Sloth avatar" 
-              className="w-10 h-10 object-cover rounded-full" 
+              src="/lovable-uploads/956811c5-4cf0-4b67-9bda-7a4bae245a7f.png" 
+              alt="Top Tours Costa Rica logo" 
+              className="w-10 h-10 object-cover rounded-lg" 
             />
             <span className="text-xs mt-1 text-jungle-800 font-medium">Chat</span>
           </div>
